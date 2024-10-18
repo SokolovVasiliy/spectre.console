@@ -1,6 +1,6 @@
 namespace Spectre.Console;
 
-internal sealed class ProgressBar : Renderable, IHasCulture
+public sealed class ProgressBar : Renderable, IHasCulture
 {
     private const int PULSESIZE = 20;
     private const int PULSESPEED = 15;

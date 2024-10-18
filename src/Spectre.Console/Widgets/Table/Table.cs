@@ -68,12 +68,12 @@ public sealed class Table : Renderable, IHasTableBorder, IExpandable, IAlignable
     public Justify? Alignment { get; set; }
 
     // Whether this is a grid or not.
-    internal bool IsGrid { get; set; }
+    public bool IsGrid { get; set; }
 
     // Whether or not the most right cell should be padded.
     // This is almost always the case, unless we're rendering
     // a grid without explicit padding in the last cell.
-    internal bool PadRightCell { get; set; } = true;
+    public bool PadRightCell { get; set; } = true;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Table"/> class.
@@ -124,6 +124,10 @@ public sealed class Table : Renderable, IHasTableBorder, IExpandable, IAlignable
         var maxTableWidth = Width ?? measurements.Sum(x => x.Max) + measurer.GetNonColumnWidth();
         return new Measurement(minTableWidth, maxTableWidth);
     }
+    public Measurement GetMeasure(RenderOptions options, int maxWidth)
+    {
+        return Measure(options, maxWidth);
+    }
 
     /// <inheritdoc/>
     protected override IEnumerable<Segment> Render(RenderOptions options, int maxWidth)
@@ -147,6 +151,10 @@ public sealed class Table : Renderable, IHasTableBorder, IExpandable, IAlignable
         return TableRenderer.Render(
             new TableRendererContext(this, options, rows, tableWidth, maxWidth),
             columnWidths);
+    }
+    public IEnumerable<Segment> GetRender(RenderOptions options, int maxWidth)
+    {
+        return Render(options, maxWidth);
     }
 
     private List<TableRow> GetRenderableRows()

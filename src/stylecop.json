@@ -2,18 +2,18 @@
   "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
   "settings": {
     "documentationRules": {
-      "documentExposedElements": true,
+      "documentExposedElements": false,
       "documentInternalElements": false,
       "documentPrivateElements": false,
       "documentPrivateFields": false
     },
     "layoutRules": {
       "newlineAtEndOfFile": "allow",
-      "allowConsecutiveUsings": true
+      "allowConsecutiveUsings": false
     },
     "orderingRules": {
       "usingDirectivesPlacement": "outsideNamespace",
-      "systemUsingDirectivesFirst": true,
+      "systemUsingDirectivesFirst": false,
       "elementOrder": [
         "kind",
         "accessibility",

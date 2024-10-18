@@ -17,7 +17,10 @@ public sealed class Panel : Renderable, IHasBoxBorder, IHasBorder, IExpandable, 
 
     /// <inheritdoc/>
     public Style? BorderStyle { get; set; }
-
+    /// <summary>
+    /// Child element of panel
+    /// </summary>
+    public IRenderable Child => _child;
     /// <summary>
     /// Gets or sets a value indicating whether or not the panel should
     /// fit the available space. If <c>false</c>, the panel width will be

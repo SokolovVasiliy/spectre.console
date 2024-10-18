@@ -26,6 +26,10 @@ public sealed class Align : Renderable
     /// Gets or sets the height.
     /// </summary>
     public int? Height { get; set; }
+    /// <summary>
+    /// Child elements
+    /// </summary>
+    public IRenderable Child => _renderable;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Align"/> class.

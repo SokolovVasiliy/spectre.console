@@ -35,6 +35,7 @@ public sealed class GridRow : IEnumerable<IRenderable>
 
         _items.Add(item);
     }
+    
 
     /// <inheritdoc/>
     public IEnumerator<IRenderable> GetEnumerator()

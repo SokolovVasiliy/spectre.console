@@ -6,7 +6,7 @@ namespace Spectre.Console;
 [SuppressMessage("Naming", "CA1724:Type names should not match namespaces")]
 public sealed class Markup : Renderable, IHasJustification, IOverflowable
 {
-    private readonly Paragraph _paragraph;
+    private Paragraph _paragraph;
 
     /// <inheritdoc/>
     public Justify? Justification
@@ -41,7 +41,10 @@ public sealed class Markup : Renderable, IHasJustification, IOverflowable
     {
         _paragraph = MarkupParser.Parse(text, style);
     }
-
+    public void Update(string text, Style? style = null)
+    {
+        _paragraph = MarkupParser.Parse(text, style);
+    }
     /// <inheritdoc/>
     protected override Measurement Measure(RenderOptions options, int maxWidth)
     {

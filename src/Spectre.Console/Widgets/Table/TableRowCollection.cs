@@ -21,6 +21,17 @@ public sealed class TableRowCollection : IReadOnlyList<TableRow>
         }
     }
 
+    public TableRow this[int index]
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _list[index];
+            }
+        }
+    }
+
     /// <summary>
     /// Gets the number of rows in the collection.
     /// </summary>
